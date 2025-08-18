@@ -1,5 +1,26 @@
 <?php
 include('includes/config.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name    = $_POST['name'];
+    $email   = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+    $user_id = (isset($_SESSION['username']) ? $_SESSION['username'] : null);
+
+    $sql = "INSERT INTO user_messages (user_id, name, email, subject, message) VALUES (:user_id, :name, :email, :subject, :message)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':subject', $subject, PDO::PARAM_STR);
+    $stmt->bindParam(':message', $message, PDO::PARAM_STR);
+    if ($stmt->execute()) {
+        echo '<script>alert("Your message has been sent successfully!");</script>';
+    } else {
+        echo '<script>alert("Failed to send message. Please try again.");</script>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,11 +70,11 @@ include('includes/config.php');
                 </form>
             </div>
             <div class="col-md-6">
-                <div class="contact-info">
+                <div class="contact-info" style="color: #fff;">
                     <h3>Contact Details</h3>
-                    <p><em class="fa fa-map-marker-alt"></em> CWMS, Main Road, Your City, India</p>
-                    <p><em class="fa fa-phone-alt"></em> +91 9789027597</p>
-                    <p><em class="far fa-envelope"></em> info@carwash.com</p>
+                    <p><em class="fa fa-map-marker-alt"></em> Amtola More, Khilkhet, Dhaka</p>
+                    <p><em class="fa fa-phone-alt"></em> 01959641122</p>
+                    <p><em class="far fa-envelope"></em> <a href="mailto:irtejamahamud9@gmail.com" style="color: #fff;">irtejamahamud9@gmail.com</a></p>
                     <h4>Opening Hours</h4>
                     <p>Mon - Fri: 8:00 AM - 9:00 PM</p>
                     <p>Sat - Sun: 9:00 AM - 6:00 PM</p>

@@ -234,6 +234,23 @@ CREATE TABLE `user_bookings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_messages`
+--
+
+CREATE TABLE `user_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `message` mediumtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -282,6 +299,12 @@ ALTER TABLE `user_bookings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_messages`
+--
+ALTER TABLE `user_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -325,6 +348,12 @@ ALTER TABLE `tblwashingpoints`
 -- AUTO_INCREMENT for table `user_bookings`
 --
 ALTER TABLE `user_bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_messages`
+--
+ALTER TABLE `user_messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
