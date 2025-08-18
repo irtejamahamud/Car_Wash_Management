@@ -84,7 +84,7 @@ if(isset($_POST['book']))
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="utf-8">
         <title>CWMS | Booking</title>
         <!-- Favicon -->
@@ -117,9 +117,8 @@ if(isset($_POST['book']))
                 
         </script>
     </head>
-
-    <body>
-<?php include_once('includes/headerlogout.php');?>
+<body>
+<?php include_once('includes/header.php');?>
 
  <div class="contact">
             <div class="container">
@@ -128,7 +127,8 @@ if(isset($_POST['book']))
                 </div>
         </div> 
         
-<form name="f" onsubmit="return dateval()" method="POST">   
+<form name="f" onsubmit="return dateval()" method="POST" class="px-4">   
+  <!-- px-4 adds padding-left and padding-right (Bootstrap) -->
   <p>
   <select name="packagetype" required class="form-control">
                     <option value="">Select Services</option>
@@ -172,10 +172,11 @@ if(isset($_POST['book']))
             <p><input type="text" name="contactno" class="form-control" pattern="[0-9]{10}" title="10 numeric characters only" required placeholder="Mobile No."></p>
             <p>Wash Date <br /><input type="date" name="washdate" required class="form-control"></p>
              <p>Wash Time <br /><input type="time" name="washtime" required class="form-control"></p>
-             <p><textarea name="message"  class="form-control" placeholder="Message if any"></textarea></p><div class="container">
-            <div class="col-md-12 text-center">
-                <button class="btn btn-custom" type="submit" name="book">Book Now</button>
-            </div>
+             <p><textarea name="message"  class="form-control" placeholder="Message if any"></textarea></p>
+             <div class="container">
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-custom" type="submit" name="book">Book Now</button>
+                </div>
       </form>
         
                 </div>

@@ -80,22 +80,26 @@ foreach($results as $result)
                             <a href="about.php" class="nav-item nav-link <?php echo $current==='about.php'?'active':''; ?>">About</a>
                             <a href="washing-plans.php" class="nav-item nav-link <?php echo $current==='washing-plans.php'?'active':''; ?>">Washing Plans</a>
                             <a href="location.php" class="nav-item nav-link <?php echo $current==='location.php'?'active':''; ?>">Washing Points</a>
-                            <?php if ($username): ?>
-                                <a href="Bookingpage.php" class="nav-item nav-link <?php echo ($current==='Bookingpage.php')?'active':''; ?>">New Booking</a>
-                                <a href="getBookings.php" class="nav-item nav-link <?php echo ($current==='getBookings.php')?'active':''; ?>">My Booking</a>
-                            <?php else: ?>
-                                <a href="admin" class="nav-item nav-link">admin</a>
+                            <a href="contact.php" class="nav-item nav-link <?php echo $current==='contact.php'?'active':''; ?>">Contact</a>
+                            <?php
+                              $newBookingHref = $username ? 'Bookingpage.php' : 'Login.php';
+                              $myBookingHref  = $username ? 'getBookings.php' : 'Login.php';
+                              $disableClass   = $username ? '' : ' disabled';
+                            ?>
+                            <a href="<?php echo $newBookingHref; ?>" class="nav-item nav-link<?php echo $disableClass; ?> <?php echo $current==='Bookingpage.php'?'active':''; ?>">New Booking</a>
+                            <a href="<?php echo $myBookingHref; ?>" class="nav-item nav-link<?php echo $disableClass; ?> <?php echo $current==='getBookings.php'?'active':''; ?>">My Booking</a>
+                            <?php if(!$username): // show admin only when NOT logged in ?>
+                                <a href="admin" class="nav-item nav-link <?php echo $current==='admin'?'active':''; ?>">admin</a>
                             <?php endif; ?>
                         </div>
                         <?php if ($username): ?>
-                            <div class="ml-auto d-flex">
+                            <div class="ml-auto d-flex align-items-center">
+                                <span class="text-white mr-3">Hello, <?php echo htmlspecialchars($username); ?></span>
                                 <a class="btn btn-custom" href="logout.php">LOGOUT</a>
                             </div>
                         <?php else: ?>
-                            <div class="ml-auto">
-                                <a class="btn btn-custom" href="Login.php">LOGIN</a>
-                            </div>
-                            <div class="ml-auto">
+                            <div class="ml-auto d-flex">
+                                <a class="btn btn-custom mr-2" href="Login.php">LOGIN</a>
                                 <a class="btn btn-custom" href="Signup.php">SIGN UP</a>
                             </div>
                         <?php endif; ?>
@@ -103,3 +107,6 @@ foreach($results as $result)
                 </nav>
             </div>
         </div>
+<style>
+.navbar-nav .nav-link.disabled {opacity:.5; pointer-events:none;}
+</style>
