@@ -28,13 +28,19 @@ if(isset($_POST['book']))
     $rowcnt=mysqli_num_rows($res);
     $sql="INSERT INTO tblcarwashbooking(bookingId,packageType,carWashPoint,fullName,mobileNumber,washDate,washTime,message,status,City) VALUES(:bno,:ptype,:wpoint,:fname,:mobile,:date,:time,:message,:status,:wpoin)";
     $query = $dbh->prepare($sql);
+
+    // Get user id from session (username)
+    session_start();
+    $user_id = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+
     if($rowcnt == 5)
     {
         echo "<script>alert('Select Different Date')</script>";
-        header("Lecation: bookingpage.php");
+        header("Location: bookingpage.php");
     }
     else
     {
+        // Insert into tblcarwashbooking
         $query->bindParam(':bno',$bno,PDO::PARAM_STR);
         $query->bindParam(':ptype',$ptype,PDO::PARAM_STR);
         $query->bindParam(':wpoint',$wpoint,PDO::PARAM_STR);
@@ -47,19 +53,34 @@ if(isset($_POST['book']))
         $query->bindParam(':wpoin',$wpoin,PDO::PARAM_STR);
         $query->execute();
         $lastInsertId = $dbh->lastInsertId();
+
+        // Insert into user_bookings
+        $sql2 = "INSERT INTO user_bookings(user_id, bookingId, packageType, carWashPoint, fullName, mobileNumber, washDate, washTime, message, status, City) VALUES(:user_id, :bno, :ptype, :wpoint, :fname, :mobile, :date, :time, :message, :status, :wpoin)";
+        $query2 = $dbh->prepare($sql2);
+        $query2->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+        $query2->bindParam(':bno',$bno,PDO::PARAM_STR);
+        $query2->bindParam(':ptype',$ptype,PDO::PARAM_STR);
+        $query2->bindParam(':wpoint',$wpoint,PDO::PARAM_STR);
+        $query2->bindParam(':fname',$fname,PDO::PARAM_STR);
+        $query2->bindParam(':mobile',$mobile,PDO::PARAM_STR);
+        $query2->bindParam(':date',$date,PDO::PARAM_STR);
+        $query2->bindParam(':time',$time,PDO::PARAM_STR);
+        $query2->bindParam(':message',$message,PDO::PARAM_STR);
+        $query2->bindParam(':status',$status,PDO::PARAM_STR);
+        $query2->bindParam(':wpoin',$wpoin,PDO::PARAM_STR);
+        $query2->execute();
+
         if($lastInsertId)
         {
-        
-        echo '<script>alert("Your booking done successfully. Booking number is "+"'.$bno.'")</script>';
-        echo "<script>window.location.href ='booking-pg.php'</script>";
+            echo '<script>alert("Your booking done successfully. Booking number is "+"'.$bno.'")</script>';
+            echo "<script>window.location.href ='booking-pg.php'</script>";
         }
         else 
         {
-        echo "<script>alert('Something went wrong. Please try again.');</script>";
-        }
-
+            echo "<script>alert('Something went wrong. Please try again.');</script>";
         }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

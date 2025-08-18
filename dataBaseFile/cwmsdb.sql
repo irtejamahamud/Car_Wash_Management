@@ -207,6 +207,33 @@ INSERT INTO `users` (`username`, `email`, `p_no`, `Password`) VALUES
 ('Aravindh', 'aravindhram@gmail.com', '9444724811', 'Aravindh2101'),
 ('Anirudh', 'anirudh@gmail.com', '8996465178', 'Anirudh@1610');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_bookings`
+--
+
+CREATE TABLE `user_bookings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) NOT NULL,
+  `bookingId` bigint(10) DEFAULT NULL,
+  `packageType` varchar(120) DEFAULT NULL,
+  `carWashPoint` int(11) DEFAULT NULL,
+  `fullName` varchar(150) DEFAULT NULL,
+  `mobileNumber` bigint(12) DEFAULT NULL,
+  `washDate` date DEFAULT NULL,
+  `washTime` time DEFAULT NULL,
+  `message` mediumtext DEFAULT NULL,
+  `status` varchar(120) DEFAULT NULL,
+  `adminRemark` mediumtext DEFAULT NULL,
+  `paymentMode` varchar(120) DEFAULT NULL,
+  `txnNumber` varchar(120) DEFAULT NULL,
+  `postingDate` timestamp NULL DEFAULT current_timestamp(),
+  `lastUpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `City` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -249,6 +276,12 @@ ALTER TABLE `tblwashingpoints`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_bookings`
+--
+ALTER TABLE `user_bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -287,6 +320,12 @@ ALTER TABLE `tblservices`
 --
 ALTER TABLE `tblwashingpoints`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `user_bookings`
+--
+ALTER TABLE `user_bookings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

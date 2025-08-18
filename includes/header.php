@@ -1,6 +1,7 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) session_start();
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+$current = basename($_SERVER['PHP_SELF']);
 ?>
 <!-- Top Bar Start -->
         <div class="top-bar">
@@ -67,7 +68,6 @@ foreach($results as $result)
         
         <div class="nav-bar">
             <div class="container">
-                <?php $current = basename($_SERVER['PHP_SELF']); ?>
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
                     <a href="#" class="navbar-brand">MENU</a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -80,12 +80,15 @@ foreach($results as $result)
                             <a href="about.php" class="nav-item nav-link <?php echo $current==='about.php'?'active':''; ?>">About</a>
                             <a href="washing-plans.php" class="nav-item nav-link <?php echo $current==='washing-plans.php'?'active':''; ?>">Washing Plans</a>
                             <a href="location.php" class="nav-item nav-link <?php echo $current==='location.php'?'active':''; ?>">Washing Points</a>
-                            <a href="Bookingpage.php" class="nav-item nav-link <?php echo $current==='Bookingpage.php'?'active':''; ?>">Booking</a>
-                            <a href="admin" class="nav-item nav-link">admin</a>
+                            <?php if ($username): ?>
+                                <a href="Bookingpage.php" class="nav-item nav-link <?php echo ($current==='Bookingpage.php')?'active':''; ?>">New Booking</a>
+                                <a href="getBookings.php" class="nav-item nav-link <?php echo ($current==='getBookings.php')?'active':''; ?>">My Booking</a>
+                            <?php else: ?>
+                                <a href="admin" class="nav-item nav-link">admin</a>
+                            <?php endif; ?>
                         </div>
                         <?php if ($username): ?>
                             <div class="ml-auto d-flex">
-                                <a class="btn btn-custom mr-2" href="getBookings.php">My Bookings</a>
                                 <a class="btn btn-custom" href="logout.php">LOGOUT</a>
                             </div>
                         <?php else: ?>

@@ -13,11 +13,14 @@ foreach($results as $result)
 {       
 ?>
 
-                            <p><em class="fa fa-map-marker-alt"></em>Flat A,37,Rajeshwari Street,Methanagar,Chennai-600029</p>
-                            <p><em class="fa fa-phone-alt"></em>+91 9789027597</p>
-                            <p><em class="fa fa-envelope"></em><?php   echo $result->emailId; ?></p>
 
                         <?php } ?>
+                            <div class="mt-3">
+                        <h5 class="mb-2">Owner / Contact</h5>
+                        <p><em class="fa fa-map-marker-alt"></em> Amtola More, Khilkhet, Dhaka</p>
+                        <p><em class="fa fa-phone-alt"></em> 01959641122</p>
+                        <p><em class="fa fa-envelope"></em> <a href="mailto:irtejamahamud9@gmail.com">irtejamahamud9@gmail.com</a></p>
+                    </div>
                             <div class="footer-social">
                                 <a class="btn" href=""><em class="fab fa-twitter"></em></a>
                                 <a class="btn" href=""><em class="fab fa-facebook-f"></em></a>

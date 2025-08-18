@@ -33,14 +33,14 @@ function mapPackageType($p) {
     }
 }
 
-// Fetch bookings for logged-in user using fullName = username (as per your DB structure)
+// Fetch bookings for logged-in user using user_id
 $sql = "SELECT b.*, w.washingPointName, w.washingPointAddress 
-        FROM tblcarwashbooking b
+        FROM user_bookings b
         LEFT JOIN tblwashingpoints w ON w.id = b.carWashPoint
-        WHERE b.fullName = :name
+        WHERE b.user_id = :userid
         ORDER BY b.postingDate DESC";
 $q = $dbh->prepare($sql);
-$q->bindParam(':name', $userRow->username, PDO::PARAM_STR);
+$q->bindParam(':userid', $userRow->username, PDO::PARAM_STR);
 $q->execute();
 $bookings = $q->fetchAll(PDO::FETCH_OBJ);
 ?>
