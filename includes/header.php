@@ -94,6 +94,10 @@ foreach ($results as $result)
                         <?php if ($username): ?>
                             <div class="ml-auto d-flex align-items-center">
                                 <span class="text-white mr-3">Hello, <?php echo htmlspecialchars($username); ?></span>
+                                <!-- User icon linking to profile page -->
+                                <a href="Profile_info.php" class="btn btn-link p-0 mr-2" title="Profile">
+                                    <i class="fas fa-user-circle fa-lg text-white"></i>
+                                </a>
                                 <a class="btn btn-custom" href="logout.php">LOGOUT</a>
                             </div>
                         <?php else: ?>
@@ -112,3 +116,5 @@ foreach ($results as $result)
 <style>
 .navbar-nav .nav-link.disabled {opacity:.5; pointer-events:none;}
 </style>
+<!-- Add FontAwesome for user icon if not already included -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
