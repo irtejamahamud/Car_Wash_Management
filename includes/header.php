@@ -25,7 +25,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
 foreach ($results as $result)
 {       
 ?>
-                    <div class="col-lg-8 col-md-7 d-none d-lg-block px-2">
+                    <div class="col-lg-8 col-md-7 d-none d-lg-block px-0">
                         <div class="row">
                             <div class="col-4">
                                 <div class="top-bar-item">
@@ -88,7 +88,7 @@ foreach ($results as $result)
                                 <a href="getBookings.php" class="nav-item nav-link <?php echo $current==='getBookings.php'?'active':''; ?>">My Booking</a>
                             <?php endif; ?>
                             <?php if(!$username): // show admin only when NOT logged in ?>
-                                <a href="admin" class="nav-item nav-link <?php echo $current==='admin'?'active':''; ?>">admin</a>
+                                <a href="admin" class="nav-item nav-link <?php echo $current==='admin'?'active':''; ?>">Admin</a>
                             <?php endif; ?>
                         </div>
                         <?php if ($username): ?>

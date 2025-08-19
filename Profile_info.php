@@ -40,7 +40,7 @@ include_once('includes/header.php');
         }
         .profile-card h4 {
             font-weight: 700;
-            color: #007bff;
+            color: #00062cff;
         }
         .profile-card .table th {
             width: 40%;
@@ -48,7 +48,7 @@ include_once('includes/header.php');
         }
         .profile-avatar {
             font-size: 5rem;
-            color: #007bff;
+            color: #ff7b7bff;
         }
         @media (max-width: 768px) {
             .profile-card { padding: 1rem; }
@@ -79,7 +79,7 @@ include_once('includes/header.php');
                         </tr>
                     </table>
                     <div class="text-center mt-3">
-                        <a href="edit_profile.php" class="btn btn-primary"><i class="fas fa-edit"></i> Edit Profile</a>
+                        <a href="edit_profile.php" class="btn btn-custom btn-primary"><i class="fas fa-edit"></i> Edit Profile</a>
                     </div>
                 </div>
             </div>

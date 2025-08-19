@@ -19,7 +19,7 @@ foreach($results as $result)
                         <h5 class="mb-2">Owner / Contact</h5>
                         <p><em class="fa fa-map-marker-alt"></em> Amtola More, Khilkhet, Dhaka</p>
                         <p><em class="fa fa-phone-alt"></em> 01959641122</p>
-                        <p><em class="fa fa-envelope"></em> <a href="mailto:irtejamahamud9@gmail.com">irtejamahamud9@gmail.com</a></p>
+                        <p><em class="fa fa-envelope"></em> <a href="mailto:irtejamahamud9@gmail.com"></a>irtejamahamud9@gmail.com</p>
                     </div>
                             <div class="footer-social">
                                 <a class="btn" href=""><em class="fab fa-twitter"></em></a>
