@@ -55,7 +55,7 @@ else
     </head>
 
     <body>
-<?php include_once('includes/headerlogout.php');?>
+<?php include_once('includes/header.php');?>
         <div class="contact">
             <div class="container">
                 <div class="section-header text-center">

@@ -23,7 +23,7 @@ $results=$query->fetchAll(PDO::FETCH_OBJ);
 foreach($results as $result)
 {       
 ?>
-                    <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                    <div class="col-lg-8 col-md-7 d-none d-lg-block px-2">
                         <div class="row">
                             <div class="col-4">
                                 <div class="top-bar-item">
@@ -81,13 +81,10 @@ foreach($results as $result)
                             <a href="washing-plans.php" class="nav-item nav-link <?php echo $current==='washing-plans.php'?'active':''; ?>">Washing Plans</a>
                             <a href="location.php" class="nav-item nav-link <?php echo $current==='location.php'?'active':''; ?>">Washing Points</a>
                             <a href="contact.php" class="nav-item nav-link <?php echo $current==='contact.php'?'active':''; ?>">Contact</a>
-                            <?php
-                              $newBookingHref = $username ? 'Bookingpage.php' : 'Login.php';
-                              $myBookingHref  = $username ? 'getBookings.php' : 'Login.php';
-                              $disableClass   = $username ? '' : ' disabled';
-                            ?>
-                            <a href="<?php echo $newBookingHref; ?>" class="nav-item nav-link<?php echo $disableClass; ?> <?php echo $current==='Bookingpage.php'?'active':''; ?>">New Booking</a>
-                            <a href="<?php echo $myBookingHref; ?>" class="nav-item nav-link<?php echo $disableClass; ?> <?php echo $current==='getBookings.php'?'active':''; ?>">My Booking</a>
+                            <?php if($username): ?>
+                                <a href="Bookingpage.php" class="nav-item nav-link <?php echo $current==='Bookingpage.php'?'active':''; ?>">New Booking</a>
+                                <a href="getBookings.php" class="nav-item nav-link <?php echo $current==='getBookings.php'?'active':''; ?>">My Booking</a>
+                            <?php endif; ?>
                             <?php if(!$username): // show admin only when NOT logged in ?>
                                 <a href="admin" class="nav-item nav-link <?php echo $current==='admin'?'active':''; ?>">admin</a>
                             <?php endif; ?>
@@ -107,6 +104,9 @@ foreach($results as $result)
                 </nav>
             </div>
         </div>
+<style>
+.navbar-nav .nav-link.disabled {opacity:.5; pointer-events:none;}
+</style>
 <style>
 .navbar-nav .nav-link.disabled {opacity:.5; pointer-events:none;}
 </style>
