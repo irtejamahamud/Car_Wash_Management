@@ -54,7 +54,7 @@ include('includes/config.php');
                     <div class="col-lg-6">
                         <div class="section-header text-left">
                             <p>About Us</p>
-                            <h2>car washing and detailing</h2>
+                            <h2>Car washing and detailing</h2>
                         </div>
                         <div class="about-content">
 <?php 
