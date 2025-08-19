@@ -16,11 +16,13 @@ $current = basename($_SERVER['PHP_SELF']);
                     </div>
 
 <?php 
-$sql = "SELECT * from tblpages where type='contact'";
-$query = $dbh -> prepare($sql);
+$type = 'contact'; // Use a variable for the type value
+$sql = "SELECT * FROM tblpages WHERE type = :type";
+$query = $dbh->prepare($sql);
+$query->bindParam(':type', $type, PDO::PARAM_STR);
 $query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-foreach($results as $result)
+$results = $query->fetchAll(PDO::FETCH_OBJ);
+foreach ($results as $result)
 {       
 ?>
                     <div class="col-lg-8 col-md-7 d-none d-lg-block px-2">
