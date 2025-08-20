@@ -77,7 +77,7 @@ else
                         </div>
                         <div class="carousel-text">
                             <h3>Washing & Detailing</h3>
-                            <h1>Keep your Car Newer</h1>
+                            <h1>Keep Your Car Newer</h1>
                        
                         </div>
                     </div>
