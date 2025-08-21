@@ -1,6 +1,8 @@
-<?php error_reporting(0);
+<?php
+error_reporting(0);
 include('includes/config.php');
-    ?>
+if (session_status() == PHP_SESSION_NONE) session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -76,17 +78,14 @@ include('includes/config.php');
                         </div>
 
                         <?php
-                            if(isset($_SESSION["error"]))
-                            {
-                                echo '<script>
-                                alert("Username/Password is wrong");
-                                </script>';
+                            // Only show alerts if redirected after form submission
+                            if(isset($_SESSION["error"])) {
+                                echo '<script>alert("Username/Password is wrong");</script>';
+                                unset($_SESSION["error"]);
                             }
-                            if(isset($_SESSION["success"]))
-                            {
-                                echo '<script>
-                                alert("Registration Successful");
-                                </script>';
+                            if(isset($_SESSION["success"])) {
+                                echo '<script>alert("Registration Successful");</script>';
+                                unset($_SESSION["success"]);
                             }
                         ?> 
 

@@ -1,5 +1,6 @@
 <?php error_reporting(0);
 include('includes/config.php');
+if (session_status() == PHP_SESSION_NONE) session_start();
 
 if(isset($_POST['submit']))
 {
@@ -169,11 +170,10 @@ foreach($results as $result)
                                 </div>
                             </form>
                         <?php 
-                            if(isset($_SESSION["error"]))
-                            {
-                                echo '<script>
-                                alert("User already exists");
-                                </script>';
+                            // Only show alert if redirected after form submission
+                            if(isset($_SESSION["error"])) {
+                                echo '<script>alert("User already exists");</script>';
+                                unset($_SESSION["error"]);
                             }
                         ?>
                         </form>
