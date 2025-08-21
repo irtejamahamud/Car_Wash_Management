@@ -17,7 +17,7 @@ body a {
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
   -ms-transition: 0.5s all;
-  background: #011d4a;
+  background: #ffffff;
 }
 a:focus,
 a:active,
@@ -43,7 +43,7 @@ h5 {
   font-family: "Montserrat", sans-serif;
 }
 a {
-  color: #008de7;
+  color: #dedede;
   font-weight: 400;
 }
 a:hover {
@@ -66,7 +66,7 @@ a:hover {
   width: 87%;
 }
 a.sidebar-icon:hover {
-  color: #1b93e1;
+  color: #e1461b;
 }
 .page-container.sidebar-collapsed {
   transition: all 100ms linear;
