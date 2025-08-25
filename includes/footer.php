@@ -39,10 +39,12 @@
     justify-content: center;
     font-size: 1.3rem;
     transition: background 0.2s, color 0.2s;
+    text-decoration: none; /* Ensure no underline by default */
 }
 .footer-social .btn:hover {
     background: #43db83;
     color: #222;
+    text-decoration: none; /* Remove underline on hover */
 }
 .footer-link {
     margin-top: 1.5rem;
