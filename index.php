@@ -59,6 +59,11 @@ else
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+        <style>
+        /* Fallback to ensure visibility even if JS is late */
+        .owl-carousel { display: block; }
+        </style>
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -266,13 +271,63 @@ foreach($results as $result)
                     <p>What Our Clients Say</p>
                     <h2>Testimonials</h2>
                 </div>
+                <style>
+                .testimonial-carousel .testimonial-item {
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+                    padding: 2rem 1.5rem 1.5rem 1.5rem;
+                    margin: 0.5rem;
+                    text-align: center;
+                    position: relative;
+                }
+                .testimonial-carousel .testimonial-text {
+                    font-size: 1.1rem;
+                    color: #222;
+                    margin-bottom: 1.2rem;
+                    font-style: italic;
+                }
+                .testimonial-carousel .testimonial-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 1rem;
+                }
+                .testimonial-carousel .user-icon {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    background: #43db83;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 0.5rem;
+                    box-shadow: 0 2px 8px rgba(67,219,131,0.15);
+                }
+                .testimonial-carousel .user-icon i {
+                    color: #fff;
+                    font-size: 2.5rem;
+                }
+                .testimonial-carousel h3 {
+                    font-size: 1.15rem;
+                    font-weight: 700;
+                    margin-bottom: 0.2rem;
+                    color: #007bff;
+                }
+                .testimonial-carousel h4 {
+                    font-size: 1rem;
+                    color: #888;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+                </style>
                 <div class="owl-carousel testimonial-carousel">
                     <div class="testimonial-item">
                         <div class="testimonial-text">
                             <p>Excellent service! My car looks brand new every time. Highly recommended.</p>
                         </div>
                         <div class="testimonial-info">
-                            <img src="img/testimonial-1.jpg" alt="Client">
+                            <span class="user-icon"><i class="fas fa-user-circle"></i></span>
                             <h3>Rahul Sharma</h3>
                             <h4>Delhi</h4>
                         </div>
@@ -282,7 +337,7 @@ foreach($results as $result)
                             <p>Professional staff and quick turnaround. The best car wash in town!</p>
                         </div>
                         <div class="testimonial-info">
-                            <img src="img/testimonial-2.jpg" alt="Client">
+                            <span class="user-icon"><i class="fas fa-user-circle"></i></span>
                             <h3>Priya Singh</h3>
                             <h4>Noida</h4>
                         </div>
@@ -292,7 +347,7 @@ foreach($results as $result)
                             <p>Affordable prices and great results. I am a regular customer now.</p>
                         </div>
                         <div class="testimonial-info">
-                            <img src="img/testimonial-3.jpg" alt="Client">
+                            <span class="user-icon"><i class="fas fa-user-circle"></i></span>
                             <h3>Arjun Verma</h3>
                             <h4>Ghaziabad</h4>
                         </div>
@@ -302,7 +357,7 @@ foreach($results as $result)
                             <p>I'm very particular about my car, and these guys did not disappoint. Fantastic job!</p>
                         </div>
                         <div class="testimonial-info">
-                            <img src="img/testimonial-4.jpg" alt="Client">
+                            <span class="user-icon"><i class="fas fa-user-circle"></i></span>
                             <h3>Anjali Mehta</h3>
                             <h4>Faridabad</h4>
                         </div>
@@ -312,7 +367,7 @@ foreach($results as $result)
                             <p>Great attention to detail and very friendly staff. Will definitely come again!</p>
                         </div>
                         <div class="testimonial-info">
-                            <img src="img/testimonial-5.jpg" alt="Client">
+                            <span class="user-icon"><i class="fas fa-user-circle"></i></span>
                             <h3>Suresh Reddy</h3>
                             <h4>Gurgaon</h4>
                         </div>
@@ -400,12 +455,8 @@ foreach($results as $result)
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/waypoints/waypoints.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
-        
-        <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
         <script src="mail/contact.js"></script>
-
-        <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>
 </html>
